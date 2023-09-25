@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-moment.locale('es-do');
 
 function formatDateNumber(date: number) {
   const fecha = moment(date).format('L');
