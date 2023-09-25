@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { User } from '../users/entities/user.schema';
 import { IAlarm } from '../emqx/interfaces';
-import { formatDateNumber, formatTime, unixToDate } from '../utils';
+import { unixToDate, unixToHora } from '../utils';
 
 ConfigModule.forRoot({
   envFilePath: `.${process.env.NODE_ENV}.env`,
@@ -64,7 +64,7 @@ export class EventMailModule {
         setPoint: alarm.setPoint,
         unit: alarm.unit,
         date: unixToDate(String(alarm.time)),
-        time: formatTime(alarm.time),
+        time: unixToHora(String(alarm.time)),
       },
     });
   }
