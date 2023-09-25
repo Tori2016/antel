@@ -16,8 +16,15 @@ const configService = new ConfigService();
         return {
           transport: {
             host: configService.get('MAIL_HOST'),
-            port: configService.get('MAIL_PORT'),
             secure: configService.get('MAIL_SECURE') === 'true',
+            secureConnection: false,
+            tls: {
+              ciphers: "SSLv3",
+            },
+            requireTLS: true,
+            port: configService.get('MAIL_PORT'),
+            debug: true,
+            connectionTimeout: 10000,
             auth: {
               user: configService.get('MAIL_USER'),
               pass: configService.get('MAIL_PASSWORD'),
