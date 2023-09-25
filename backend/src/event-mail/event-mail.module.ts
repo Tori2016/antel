@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { User } from '../users/entities/user.schema';
 import { IAlarm } from '../emqx/interfaces';
-import { formatTime, unixToDate, unixToHora } from '../utils';
+import { formatTime, unixToDate } from '../utils';
 
 ConfigModule.forRoot({
   envFilePath: `.${process.env.NODE_ENV}.env`,

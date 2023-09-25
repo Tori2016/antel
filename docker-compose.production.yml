@@ -131,6 +131,8 @@ services:
     restart: always
     expose:
       - 5000
+    environment:
+      TZ: ${TZ}
     env_file:
       - ./backend/.production.env
     command: "npm run start:prod"
@@ -148,6 +150,8 @@ services:
     restart: always
     expose:
       - 3000
+    environment:
+      TZ: ${TZ}
     env_file:
       - ./frontend/.env
     command: "npm run start"
